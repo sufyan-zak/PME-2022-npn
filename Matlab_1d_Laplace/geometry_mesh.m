@@ -2,13 +2,13 @@
 % August 12, 2019
 
 L_a=0.01;               % Length of the air block (m)
-L_i=0.01;               % Length of the insulator block (m)
+L_b=0.01;               % Length of the insulator block (m)
 N_a=60;                 % Number of elements of the air block
-N_i=60;                 % Number of element in the insulator block
+N_b=60;                 % Number of element in the insulator block
 dx_a=L_a/N_a;           % Element length of the air
-dx_i=L_i/N_i;           % Element length of the insulator
+dx_b=L_b/N_b;           % Element length of the insulator
 
-Ne_1d=N_a+N_i;          % Number of 1-D elements 
+Ne_1d=N_a+N_b;          % Number of 1-D elements 
 Nn=Ne_1d+1;             % Number of nodes     % +1 is just logic
 
 el_1d_no=zeros(Ne_1d,2);
@@ -20,7 +20,7 @@ x_no(1)=0;
 n_count=1;
 e_count=0;
 
-for i=1:N_a
+for i=1:N_a     %n-doped
     n_count=n_count+1;
     e_count=e_count+1;
     x_no(n_count)=x_no(n_count-1)+dx_a;
@@ -29,10 +29,10 @@ for i=1:N_a
     x_ec(e_count,1)=mean([x_no(n_count-1),x_no(n_count)]);
 end
 
-for i=1:N_i
+for i=1:N_b     %p-doped
     n_count=n_count+1;
     e_count=e_count+1;
-    x_no(n_count)=x_no(n_count-1)+dx_i;
+    x_no(n_count)=x_no(n_count-1)+dx_b;
     el_1d_no(e_count,1:2)=[n_count-1,n_count];
     el_mat_1d(e_count,1)=1;
     x_ec(e_count,1)=mean([x_no(n_count-1),x_no(n_count)]);

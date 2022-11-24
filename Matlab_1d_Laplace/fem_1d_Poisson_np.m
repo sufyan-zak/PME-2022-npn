@@ -1,6 +1,6 @@
-% 1-D Electrostatic Analysis 
+% 1-D Poisson
 % Source: Smajic_FEM_Electrostatic_Analysis_1D
-%hi
+
 clear;
 clc;
 
@@ -15,7 +15,7 @@ plot_final_solution=1;
 linear_elements=1;
 quadratic_elements=0;
 
-eps_0=8.85e-12; % Permittivity
+%eps_0=8.85e-12; % Permittivity
 % Model Data
 % *************************
 
