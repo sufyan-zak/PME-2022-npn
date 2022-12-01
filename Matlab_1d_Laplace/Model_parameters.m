@@ -28,25 +28,7 @@ N_D = 1e17;
 % Parameters of p-doped
 N_A = -1e16;
 
-N_doping = zeros(Ne_1d,1);
-
-for i=1:Ne_1d
-   if x_ec(i)<L_a % n
-       N_doping(i) = N_D/n_i;
-%        mu_r(i)=mu_r_a;
-%        sig(i)=sig_a;
-%        eps_r(i)=eps_r_a;
-%        rho(i)=rho_a;
-   end
-   if x_ec(i)>L_a % p
-       N_doping(i) = N_A/n_i;
-%        mu_r(i)=mu_r_i;
-%        sig(i)=sig_i;
-%        eps_r(i)=eps_r_i;
-%        rho(i)=rho_i;
-   end
-
-   % Boundary conditions
+% Boundary conditions
     q = 1.6e-19;
     k = 1.38e-23;
     T = 298.15;
@@ -55,8 +37,28 @@ for i=1:Ne_1d
     phi_1 = q*V1/(k*T);
     phi_2 = q*V2/(k*T);
 
-    psi_1 = phi_1
+N_doping = zeros(Ne_1d,1);
+phi = zeros(Ne_1d,1);
 
-    
+for i=1:Ne_1d
+   if x_ec(i)<L_a % n
+       N_doping(i) = N_D/n_i;
+       phi(i)=phi_1;
+%        mu_r(i)=mu_r_a;
+%        sig(i)=sig_a;
+%        eps_r(i)=eps_r_a;
+%        rho(i)=rho_a;
+   end
+   if x_ec(i)>L_a % p
+       N_doping(i) = N_A/n_i;
+       phi(i)=phi_2;
+%        mu_r(i)=mu_r_i;
+%        sig(i)=sig_i;
+%        eps_r(i)=eps_r_i;
+%        rho(i)=rho_i;
+   end
+   
+   % Boundary conditions 
+    psi = phi - log(sqrt(N_doping.^2+1)-N_doping./2);
 
 end

@@ -1,8 +1,9 @@
 % Electrostatic 1-D, Geometry and Mesh
 % August 12, 2019
 
-L_a=0.01;               % Length of the air block (m)
-L_b=0.01;               % Length of the insulator block (m)
+L_a=1e-6;               % Length of the air block (m)
+L_b=2.5e-6;               % Length of the insulator block (m)
+%L_c=4e-6;
 N_a=60;                 % Number of elements of the air block
 N_b=60;                 % Number of element in the insulator block
 dx_a=L_a/N_a;           % Element length of the air
