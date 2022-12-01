@@ -40,6 +40,18 @@ N_A = -1e16;
 N_doping = zeros(Ne_1d,1);
 phi = zeros(Ne_1d,1);
 
+   % Boundary conditions
+q = 1.6e-19;
+k = 1.38e-23;
+T = 298.15; 
+V1 = 0;     %will have to change to V_E
+V2 = 0;     %change to V_CB
+phi_1 = q*V1/(k*T);
+phi_2 = q*V2/(k*T);
+
+% psi_1 = phi_1 - ln( sqrt((N_D/2)^2 + 1) - N_D/2)
+% psi_2 = phi_2 - ln( sqrt((N_A/2)^2 + 1) - N_A/2)
+
 for i=1:Ne_1d
    if x_ec(i)<L_a % n
        N_doping(i) = N_D/n_i;

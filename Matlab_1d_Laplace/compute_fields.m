@@ -5,9 +5,9 @@
 Ex=zeros(Nn,1);          % Electric field
 Dx=zeros(Nn,1);          % Electric flux density
 supp=zeros(Nn,1);        % Nodal supports
-We1=0;
-We2=0;
-We3=0;
+% We1=0;
+% We2=0;
+% We3=0;
 
 for i=1:Ne_1d % Loop over 1-D elements
 
@@ -30,8 +30,8 @@ for i=1:Ne_1d % Loop over 1-D elements
     Exe=-(ex_e(1)*pot(1)+ex_e(2)*pot(2));
     Dxe=-(dx_e(1)*pot(1)+dx_e(2)*pot(2));
     
-    We1=We1+Exe*Dxe*Le;
-    We2=We2+rho(i)*mean(pot)*Le;
+%     We1=We1+Exe*Dxe*Le;
+%     We2=We2+rho(i)*mean(pot)*Le;
     
 end % End of Loop over 1-D elements
 
@@ -40,10 +40,10 @@ for i=1:Nn % Averaging over elements
     Dx(i)=Dx(i)/supp(i);
 end
 
-We1=0.5*We1;
-We2=0.5*We2;
-We3=0.5*Dx(1)*Phi(1);
-
-fprintf('We1=%14.6e J/m^2\n',We1);
-fprintf('We2=%14.6e J/m^2\n',We2);
-fprintf('We3=%14.6e J/m^2\n',We3);
+% We1=0.5*We1;
+% We2=0.5*We2;
+% We3=0.5*Dx(1)*Phi(1);
+% 
+% fprintf('We1=%14.6e J/m^2\n',We1);
+% fprintf('We2=%14.6e J/m^2\n',We2);
+% fprintf('We3=%14.6e J/m^2\n',We3);
