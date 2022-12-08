@@ -13,11 +13,13 @@ for i=1:Ne_1d % Loop over 1-D elements
         
     xl=x_no(nds_);
     
-    ae=dNi_dNj_int_cont_line_Ver_1(xl); % ae(2,2)
-    be=Ni_int_cont_line_Ver_1(i, xl); % be(2,1)
+    ae1 = dNi_dNj_int_cont_line_Ver_1(xl); % ae(2,2)
+    ae2 = Nk_Ni_Nj_int(xl,Ne_1d);
+    be1 = Nk_Ni_int_cont_line_Ver_1(i, xl); % be(2,1)
+    be2 = dNk_dNi_int(xl);
     
-    ae=ae*eps_r(i);
-    be=be*rho(i);
+    ae=(ae1+ae2)*-1;
+    be=be1-be2;
     
     A(nds_,nds_)=A(nds_,nds_)+ae;  
     b(nds_,1)=b(nds_,1)+be;

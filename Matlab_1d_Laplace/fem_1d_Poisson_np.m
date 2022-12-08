@@ -77,11 +77,11 @@ end
 % Solution of Equation System (Direct Solver)
 X=A\b;
 
-Phi=X;
+delta=X;
 % return;
 
 % Compute E, D, etc...
-compute_fields;
+% compute_fields;
 
 if plot_final_solution
     f1=figure('Position',[Px1 Py1 Px2 Py2],'Color',[1 1 1]);
