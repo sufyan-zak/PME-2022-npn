@@ -1,4 +1,4 @@
-function [be]=Nk_Ni_int_cont_line_Ver_1(xt, i)
+function [be]=Ni_int_cont_line_Ver_1(xt)
 % Integral contribution of a scalar (nodal) line (1-D)
 % integral: int(Ni*dL)
 % analytical method (Jasmin, FEM_Integral_Contributions_1D.docx)
@@ -15,8 +15,6 @@ if Le<0
 end
 
 % Integral contributions
-% k = N_doping(i) + exp(psi(i)) - exp(-psi(i)) % + V'' !!!!
-% be(1:2,1)=k*Le/2*[1,1]';
 be(1:2,1)=Le/2*[1,1]';
 
 return;

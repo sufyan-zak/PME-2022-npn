@@ -18,10 +18,9 @@ for i=1:Ne_1d % Loop over 1-D elements
     be = Ni_int_cont_line_Ver_1(xl); % be(2,1)
     
     ae2=ae2*(exp(psi(i))+exp(-psi(i)));
-    ae=(-ae1-ae2);
+    ae=(ae1+ae2)*-1;
     
-    f=-dpsi(i)+exp(psi(i))-exp(-psi(i))-N_doping(i);
-    be=be*f;
+    f=-dpsi+exp(psi(i))-exp(-psi(i))-N_doping;
     
     A(nds_,nds_)=A(nds_,nds_)+ae;  
     b(nds_,1)=b(nds_,1)+be;

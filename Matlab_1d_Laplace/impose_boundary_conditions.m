@@ -5,7 +5,7 @@
 delta1=0;
 delta2=0;
 % Left: Dirichlet BC (x=0)
-A(1,1:Nn)=0;A(1,1)=1;b(1)=delta_1;
+A(1,1:Nn)=0;A(1,1)=1;b(1)=delta1;
 
 % Right: Dirichlet BC (x=2*L)
-A(Nn,1:Nn)=0;A(Nn,Nn)=1;b(Nn)=delta_2;
+A(Nn,1:Nn)=0;A(Nn,Nn)=1;b(Nn)=delta2;
